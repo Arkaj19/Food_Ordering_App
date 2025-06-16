@@ -11,14 +11,6 @@ const parent = React.createElement("div", { id: "parent" }, [
 
 console.log(parent);
 
-// const heading = React.createElement(
-//   React.Fragment,
-//   null,
-//   React.createElement("h1", { id: "heading" }, " Hello World from React"),
-//   React.createElement("p", {}, " lorem ipsum")
-// );
-
-// const heading = React.createElement("h1", {}, " Hello World from React")
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(parent);
