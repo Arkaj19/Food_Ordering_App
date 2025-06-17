@@ -1,52 +1,22 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import './App.css'
-
-// function App() {
-//   const [count, setCount] = useState(0)
-
-//   return (
-//     <>
-//       <div>
-//         <a href="https://vite.dev" target="_blank">
-//           <img src={viteLogo} className="logo" alt="Vite logo" />
-//         </a>
-//         <a href="https://react.dev" target="_blank">
-//           <img src={reactLogo} className="logo react" alt="React logo" />
-//         </a>
-//       </div>
-//       <h1>Vite + React</h1>
-//       <div className="card">
-//         <button onClick={() => setCount((count) => count + 1)}>
-//           count is {count}
-//         </button>
-//         <p>
-//           Edit <code>src/App.jsx</code> and save to test HMR
-//         </p>
-//       </div>
-//       <p className="read-the-docs">
-//         Click on the Vite and React logos to learn more
-//       </p>
-//     </>
-//   )
-// }
-
-// export default App
-
 import React from "react";
+// import ReactDOM from "react-dom/client";
 
-const parent = React.createElement("div", { id: "parent" }, [
-  React.createElement("div", { id: "child1" }, [
-    React.createElement("h2", {}, "I am a nested React H2"),
-    React.createElement("h2", {}, "I am a nested React H2"),
-  ]),
-  React.createElement("div", { id: "child2" }, [
-    React.createElement("h2", {}, "I am a nested React H2"),
-    React.createElement("h2", {}, "I am a nested React H2"),
-  ]),
-]);
-
-export default function App() {
-  return parent;
+export const App = () => {
+  // return React.createElement("h1", { id: "heading" }, "Hello World from React!");
+  
+  // JSX is not HTML inside JS.
+  // It is a syntax extension for JavaScript that looks similar to HTML.
+  const heading = <h1 className = "id1"> Hi there from React 🚀</h1>;
+  return (
+    <div>
+      < Headingcomponent />
+      < Headingcomponent />
+      < Headingcomponent />
+      { heading}
+    </div>
+  )
 }
+
+// React Functional Components
+
+const Headingcomponent = () => <h1> Namaste Fucntional Components</h1>
