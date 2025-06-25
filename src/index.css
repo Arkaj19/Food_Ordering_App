@@ -25,33 +25,91 @@
   margin: 10px;
 }
 
-.res-container {
+/* .res-container {
   display: flex;
   flex-wrap: wrap;
-}
+} */
 
-.res-card {
+/* .res-card {
   width: 200px;
   height: 300px;
   padding: 5px;
+} */
+
+/* .res-card:hover{
+  cursor: pointer;
+  border: 1px solid black;
+} */
+
+/* 
+.search{
+  padding: 10px;
+} */
+
+/* .res-logo{
+  width: 100%; /* Slightly less than card width to account for padding */
+  /* height: 130px; /* Adjust height as needed */
+  /* object-fit: cover;
+} */
+
+/* .filter-btn {
+  margin: 10px;
+} */
+
+.res-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adds consistent spacing between cards */
+  padding: 20px; /* Adds padding around the entire container */
+  justify-content: flex-start; /* Aligns cards to the left */
+}
+
+.res-card {
+  width: 250px; /* Slightly increased width for better proportions */
+  height: 350px; /* Increased height to accommodate content better */
+  padding: 15px; /* More generous padding inside each card */
+  margin: 0; /* Remove margin since we're using gap on container */
+  border: 1px solid #e0e0e0; /* Subtle border for definition */
+  border-radius: 8px; /* Rounded corners for modern look */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: white;
 }
 
 .res-card:hover{
   cursor: pointer;
-  border: 1px solid black;
+  border: 1px solid #333;
+  transform: translateY(-4px); /* Slight lift effect on hover */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Enhanced shadow on hover */
 }
-
 
 .search{
   padding: 10px;
 }
 
 .res-logo{
-  width: 100%; /* Slightly less than card width to account for padding */
-  height: 130px; /* Adjust height as needed */
+  width: 100%;
+  height: 150px; /* Slightly increased for better image display */
   object-fit: cover;
+  border-radius: 6px; /* Rounded corners for images */
+  margin-bottom: 10px; /* Space between image and text */
 }
 
 .filter-btn {
   margin: 10px;
+}
+
+/* Additional styling for better text layout inside cards */
+.res-card h3 {
+  margin: 8px 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.res-card p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.4;
 }
