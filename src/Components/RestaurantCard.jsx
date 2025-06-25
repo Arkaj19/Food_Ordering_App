@@ -11,7 +11,7 @@ export const RestuarantCard = (props) => {
       </img>
       <h3>{resData.name}</h3>
       <h4>{resData.cuisines}</h4>
-      <h4>{resData.rating}</h4>
+      <h4>{resData.rating} stars</h4>
       <h4>{resData.deliveryTime}</h4>
     </div>
   )

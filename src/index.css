@@ -51,3 +51,7 @@
   height: 130px; /* Adjust height as needed */
   object-fit: cover;
 }
+
+.filter-btn {
+  margin: 10px;
+}
