@@ -113,3 +113,186 @@
   color: #666;
   line-height: 1.4;
 }
+
+/* Shimmer Loading Styles */
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: flex-start;
+}
+
+.shimmer-card {
+  width: 250px;
+  height: 350px;
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.8),
+    transparent
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Shimmer card content placeholders */
+.shimmer-card::after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  height: 150px;
+  background: #f0f0f0;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+/* Additional shimmer elements for text placeholders */
+.shimmer-card {
+  background: 
+    linear-gradient(#f0f0f0 150px, transparent 150px),
+    linear-gradient(#f0f0f0 20px, transparent 20px),
+    linear-gradient(#f0f0f0 16px, transparent 16px),
+    linear-gradient(#f0f0f0 16px, transparent 16px),
+    linear-gradient(#f0f0f0 16px, transparent 16px);
+  background-size:
+    calc(100% - 30px) 150px,
+    60% 20px,
+    80% 16px,
+    70% 16px,
+    50% 16px;
+  background-position:
+    15px 15px,
+    15px 180px,
+    15px 210px,
+    15px 235px,
+    15px 260px;
+  background-repeat: no-repeat;
+  background-color: white;
+}
+
+/* Login Button Styles */
+.login {
+  background-color: #ff6b35;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.login:hover {
+  background-color: #e55a2b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.login:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.login:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.3);
+}
+
+/* Adjust nav-items ul to handle the button properly */
+.nav-items > ul {
+  font-size: 24px;
+  display: flex;
+  list-style-type: none;
+  align-items: center; /* Center align items vertically */
+}
+
+/* Updated Search Section Styles */
+.search {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Space between input and button */
+}
+
+.search-input {
+  width: 350px; /* Slightly reduced to make room for button */
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.search-input:focus {
+  border-color: #ff6b35;
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+.search-input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+/* Search Button Styles */
+.search-btn {
+  background-color: #ff6b35;
+  color: white;
+  border: none;
+  padding: 14px 24px; /* Slightly larger padding to match input height */
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+.search-btn:hover {
+  background-color: #e55a2b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.search-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.search-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.3);
+} 
