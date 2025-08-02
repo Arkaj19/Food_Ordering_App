@@ -2,6 +2,7 @@ import { RestaurantCard } from "./RestaurantCard";
 import { Data } from "../utils/swiggy_data";
 import { useEffect, useRef, useState } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 export const Body = () => {
   const allRestaurantsRef = useRef([]); // Source of all truth
@@ -92,7 +93,9 @@ export const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestaurants.map((res) => (
-          <RestaurantCard key={res.info.id} resData={res} />
+          <Link key={res.info.id} to={"/restaurants/" + res.info.id}>
+            <RestaurantCard resData={res} />
+          </Link>
         ))}
       </div>
     </div>

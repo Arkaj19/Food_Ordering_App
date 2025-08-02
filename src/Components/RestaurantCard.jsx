@@ -5,16 +5,7 @@ export const RestaurantCard = (props) => {
   const { info } = resData;
 
   return (
-    <div
-      className="res-card"
-      // style={{
-      // padding: "20px",
-      // margin: "10px",
-      // border: "1px solid #ccc",
-      // borderRadius: "8px",
-      // width: "250px"
-      // }}
-    >
+    <div className="res-card">
       <img
         src={CDN_URL + info.cloudinaryImageId}
         alt={info.name}
