@@ -20,7 +20,7 @@ export const RestaurantCard = (props) => {
       </h4>
       <h4>
         <strong>Delivery Time:</strong> {info.sla.slaString}
-      </h4>
+      </h4>  
     </div>
   );
 };
