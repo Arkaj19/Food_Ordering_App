@@ -1,9 +1,11 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import  useOnlineStatus from "../utils/useOnlineStatus";
 
 export const Header = () => {
   const [islogged, setislogged] = useState(false);
+  const onlineStatus = useOnlineStatus();
 
   useEffect(() => {
     console.log("UseEffect Called");
@@ -18,6 +20,9 @@ export const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
+          <li>
+            Online Status : { onlineStatus === true? "🟢" : "🔴" }
+          </li>
           <li>
             <Link to="/">Home</Link>
           </li>

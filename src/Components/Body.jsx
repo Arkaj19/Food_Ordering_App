@@ -3,6 +3,7 @@ import { Data } from "../utils/swiggy_data";
 import { useEffect, useRef, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 export const Body = () => {
   const allRestaurantsRef = useRef([]); // Source of all truth
@@ -49,6 +50,15 @@ export const Body = () => {
     setfilterRestaurants(restaurant); // Initialize filtered restaurants
     allRestaurantsRef.current = restaurant; // Initialiize the first render for all the restaurants
   };
+
+    const status = useOnlineStatus();
+
+    if(status === false){
+      return <div>
+        {/* <img src="/dog.jpg" alt="Offline Dog" style={{ width: "200px" }} /> */}
+        <h1>Oops!! It seems you are not connected to internet!!</h1>
+      </div>
+    }
 
   return allRestaurantsRef.current.length === 0 ? (
     <Shimmer />
