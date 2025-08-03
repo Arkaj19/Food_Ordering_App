@@ -1,10 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
 import AppLayout from "../App";
-import { Body } from "../Components/Body";
-import About from "../Components/About";
-import Contact from "../Components/Contact";
 import Error from "../Components/Error";
-import RestaurantMenu from "../Components/RestaurantMenu";
+import { lazy, Suspense } from "react";
+
+// Lazy load components
+const Body = lazy(() => import("../Components/Body"));
+const About = lazy(() => import("../Components/About"));
+const Contact = lazy(() => import("../Components/Contact"));
+const RestaurantMenu = lazy(() => import("../Components/RestaurantMenu"));
 
 const appRouter = createBrowserRouter([
   {
@@ -14,19 +17,39 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Body />,
+        element: 
+        (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Body />
+          </Suspense>
+        )
       },
       {
         path: "/about",
-        element: <About />,
+        element: 
+        (
+          <Suspense fallback={<div>Loading...</div>}>
+            <About />
+          </Suspense>
+        )
       },
       {
         path: "/contact",
-        element: <Contact />,
+        element: 
+        (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Contact />
+          </Suspense>
+        )
       },
       {
         path: "/restaurants/:resid",
-        element: <RestaurantMenu />,
+        element: 
+        (
+          <Suspense fallback={<div>Loading...</div>}>
+            <RestaurantMenu />
+          </Suspense>
+        )
       },
     ],
   },

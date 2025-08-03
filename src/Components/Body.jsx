@@ -1,11 +1,11 @@
-import { RestaurantCard } from "./RestaurantCard";
+import  RestaurantCard  from "./RestaurantCard";
 import { Data } from "../utils/swiggy_data";
 import { useEffect, useRef, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
-export const Body = () => {
+const Body = () => {
   const allRestaurantsRef = useRef([]); // Source of all truth
   const [searchitem, setSearchitem] = useState(""); // The Searching text
   const [filteredRestaurants, setfilterRestaurants] = useState([]); // The filtered restaurants
@@ -111,3 +111,5 @@ export const Body = () => {
     </div>
   );
 };
+
+export default Body;

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import  useOnlineStatus from "../utils/useOnlineStatus";
 
-export const Header = () => {
+const Header = () => {
   const [islogged, setislogged] = useState(false);
   const onlineStatus = useOnlineStatus();
 
@@ -46,3 +46,5 @@ export const Header = () => {
     </div>
   );
 };
+
+export default Header;
