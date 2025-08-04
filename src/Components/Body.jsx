@@ -1,5 +1,4 @@
 import  RestaurantCard  from "./RestaurantCard";
-import { Data } from "../utils/swiggy_data";
 import { useEffect, useRef, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";

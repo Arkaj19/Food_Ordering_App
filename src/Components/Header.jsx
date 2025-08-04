@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import  useOnlineStatus from "../utils/useOnlineStatus";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
   const [islogged, setislogged] = useState(false);
@@ -12,16 +12,16 @@ const Header = () => {
   }, [islogged]);
 
   return (
-    <div className="header">
-      <div className="logo-container">
+    <div className="flex justify-between items-center py-4 px-6 bg-orange-300">
+      <div className="flex items-center">
         <Link to="/">
-          <img className="logo" src="src\assets\Food.png"></img>
+          <img className="h-40 w-90" src="src\assets\Food.png"></img>
         </Link>
       </div>
-      <div className="nav-items">
-        <ul>
-          <li>
-            Online Status : { onlineStatus === true? "🟢" : "🔴" }
+      <div className="flex items-center">
+        <ul className="flex items-center space-x-6">
+          <li className="text-sm">
+            Online Status : {onlineStatus === true ? "🟢" : "🔴"}
           </li>
           <li>
             <Link to="/">Home</Link>
