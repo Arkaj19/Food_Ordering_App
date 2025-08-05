@@ -3,9 +3,9 @@ import { CDN_URL } from "../utils/constants";
 const RestaurantCard = (props) => {
   const { resData } = props;
   const { info } = resData;
- 
+
   return (
-    <div className="m-4 p-4 w-[250px] bg-gray-100 rounded-lg hover:bg-gray-300" >
+    <div className="m-4 p-4 w-[250px] bg-gray-100 rounded-lg hover:bg-gray-300">
       <img
         src={CDN_URL + info.cloudinaryImageId}
         alt={info.name}
@@ -20,9 +20,24 @@ const RestaurantCard = (props) => {
       </h4>
       <h4>
         <strong>Delivery Time:</strong> {info.sla.slaString}
-      </h4>  
+      </h4>
     </div>
   );
+};
+
+// This is a HOC that takes the restaurant Card as an input and returns a new component with discounted price on top of it
+export const withDiscountedPrice = (RestaurantCard) => {
+  return (discountInfo, ...Props) => {
+    const { header, subHeader } = discountInfo;
+    return () => {
+      <div>
+        <label>
+          {header} {subHeader}
+        </label>
+        <RestaurantCard {...Props} />
+      </div>;
+    };
+  };
 };
 
 export default RestaurantCard;
