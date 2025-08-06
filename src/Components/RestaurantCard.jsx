@@ -25,19 +25,4 @@ const RestaurantCard = (props) => {
   );
 };
 
-// This is a HOC that takes the restaurant Card as an input and returns a new component with discounted price on top of it
-export const withDiscountedPrice = (RestaurantCard) => {
-  return (discountInfo, ...Props) => {
-    const { header, subHeader } = discountInfo;
-    return () => {
-      <div>
-        <label>
-          {header} {subHeader}
-        </label>
-        <RestaurantCard {...Props} />
-      </div>;
-    };
-  };
-};
-
 export default RestaurantCard;

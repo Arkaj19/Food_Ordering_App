@@ -113,11 +113,12 @@
 
 // export default Body;
 
-import RestaurantCard, { withDiscountedPrice } from "./RestaurantCard";
+import RestaurantCard from "./RestaurantCard";
 import { useEffect, useRef, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import DiscountedResCard from "./DiscountedResCard";
 
 const Body = () => {
   const allRestaurantsRef = useRef([]); // Source of all truth
@@ -125,7 +126,7 @@ const Body = () => {
   const [filteredRestaurants, setfilterRestaurants] = useState([]); // The filtered restaurants
   const [activeFilter, setActiveFilter] = useState("all"); // Track active filter
 
-  const ResdiscountCard = withDiscountedPrice(RestaurantCard);
+  const RestaurantCardWithDiscount = DiscountedResCard(RestaurantCard);
 
   // The logic to handle the text being entered into the search bar
   const handleinputChange = (e) => {
@@ -344,11 +345,36 @@ const Body = () => {
       {/* Restaurant Cards Section */}
       <div className="max-w-7xl mx-auto px-4 pb-12">
         <div className="flex flex-wrap">
-          {filteredRestaurants.map((res) => (
-            <Link key={res.info.id} to={"/restaurants/" + res.info.id}>
-              <RestaurantCard resData={res} />
-            </Link>
-          ))}
+          {filteredRestaurants.map((res) => {
+            const discountInfo = res.info.aggregatedDiscountInfoV3;
+            const props = {
+              resData: res,
+            };
+            if (
+              discountInfo &&
+              (discountInfo.header || discountInfo.subHeader)
+            ) {
+              return (
+                <Link key={res.info.id} to={"/restaurants/" + res.info.id}>
+                  <RestaurantCardWithDiscount
+                    {...props}
+                    discountInfo={{
+                      header: discountInfo.header,
+                      subHeader: discountInfo.subHeader,
+                    }}
+                  />
+                </Link>
+              );
+            }
+            return (
+              <Link key={res.info.id} to={"/restaurants/" + res.info.id}>
+                <RestaurantCard {...props} />
+              </Link>
+            );
+            // <Link key={res.info.id} to={"/restaurants/" + res.info.id}>
+            //   <RestaurantCard resData={res} />
+            // </Link>
+          })}
         </div>
       </div>
     </div>
