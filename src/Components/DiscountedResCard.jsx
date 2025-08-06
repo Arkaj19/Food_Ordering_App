@@ -1,5 +1,3 @@
-import React from "react";
-
 const DiscountedResCard = (RestaurantCard) => {
   return function wrapResCard({ discountInfo, ...props }) {
     return (
@@ -13,4 +11,4 @@ const DiscountedResCard = (RestaurantCard) => {
   };
 };
 
-export default DiscountedResCard;
+export default DiscountedResCard; 
