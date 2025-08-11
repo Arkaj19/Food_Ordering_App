@@ -2,7 +2,6 @@ import { useState } from "react";
 import { CDN_URL } from "../utils/constants";
 
 const ItemList = ({ items }) => {
-
   if (!items || items.length === 0) {
     return <div>No items availabe</div>;
   }
@@ -20,7 +19,7 @@ const ItemList = ({ items }) => {
           >
             <div className="w-9/12">
               <div className="py-2">
-                <span> {itemInfo.name}</span>
+                <span className="font-bold"> {itemInfo.name}</span>
                 <span>
                   {" "}
                   - ₹{" "}

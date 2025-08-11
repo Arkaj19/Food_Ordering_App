@@ -8,6 +8,8 @@ const RestaurantMenu = () => {
   const { resid } = useParams();
   const resInfo = useRestaurantMenu(resid);
 
+  const [showIndex, setshowIndex] = useState(null);
+
   if (!resInfo) return <Shimmer />;
   const restaurant = resInfo?.data?.cards[2]?.card?.card?.info;
   const itemCards =
@@ -38,8 +40,15 @@ const RestaurantMenu = () => {
 
       {/* Accordian Categories map */}
       <div>
-        {categories.map((category,i) => {
-          return <RestaurantCategory  key={i} categoryData={category}/>;
+        {categories.map((category, i) => {
+          return (
+            <RestaurantCategory
+              key={i}
+              categoryData={category}
+              showItems={i === showIndex}
+              setshowIndex={() => setshowIndex(i === showIndex ? null : i)}
+            />
+          );
         })}
       </div>
     </div>
