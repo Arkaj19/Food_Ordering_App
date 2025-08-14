@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const cartSlice = createSlice({
   name: "cart",
-  initialState: {
+initialState: {
     items: [],
   },
 
@@ -15,7 +15,7 @@ const cartSlice = createSlice({
       state.items.pop();
     },
 
-    clearCart: (state, action) => {
+  clearCart: (state, action) => {
       state.items.length = 0;
     },
   },

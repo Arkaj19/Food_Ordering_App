@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import AppLayout from "../App";
 import Error from "../Components/Error";
 import { lazy, Suspense } from "react";
+import Cart from "../Components/Cart";
 
 // Lazy load components
 const Body = lazy(() => import("../Components/Body"));
@@ -17,39 +18,43 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: 
-        (
+        element: (
           <Suspense fallback={<div>Loading...</div>}>
             <Body />
           </Suspense>
-        )
+        ),
       },
       {
         path: "/about",
-        element: 
-        (
+        element: (
           <Suspense fallback={<div>Loading...</div>}>
             <About />
           </Suspense>
-        )
+        ),
       },
       {
         path: "/contact",
-        element: 
-        (
+        element: (
           <Suspense fallback={<div>Loading...</div>}>
             <Contact />
           </Suspense>
-        )
+        ),
       },
       {
         path: "/restaurants/:resid",
-        element: 
-        (
+        element: (
           <Suspense fallback={<div>Loading...</div>}>
             <RestaurantMenu />
           </Suspense>
-        )
+        ),
+      },
+      {
+        path: "/cart",
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Cart />
+          </Suspense>
+        ),
       },
     ],
   },
